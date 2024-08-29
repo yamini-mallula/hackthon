@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Register Form - CodeCraftedWeb</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        function validateLoginForm() {
+           
+            var email = document.forms["loginForm"]["email"].value;
+            var password = document.forms["loginForm"]["pswd"].value;
+
+           
+            if (email === "" || password === "") {
+                alert("Please fill in all the fields");
+                return false; 
+            }
+
+           
+            return true;
+        }
+
+        function validateRegisterForm() {
+            
+            var username = document.forms["registerForm"]["txt"].value;
+            var email = document.forms["registerForm"]["email"].value;
+            var password = document.forms["registerForm"]["pswd"].value;
+
+           
+            if (username === "" || email === "" || password === "") {
+                alert("Please fill in all the fields");
+                return false; 
+            }
+
+            
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="main">  	
+            <input type="checkbox" id="chk" aria-hidden="true">
+    
+            <div class="login">
+                <form class="form" name="loginForm" onsubmit="return validateLoginForm()" action="login2.html">
+                    <label for="chk" aria-hidden="true">Log in</label>
+                    <input class="input" type="email" name="email" placeholder="Email" required>
+                    <input class="input" type="password" name="pswd" placeholder="Password" required>
+                    
+                    <a href="login2.html"><button type="submit">Log in</button></a>
+                </form>
+            </div>
+    
+            <div class="register">
+                <form class="form" name="registerForm" onsubmit="return validateRegisterForm()" action="signup.html">
+                    <label for="chk" aria-hidden="true">Register</label>
+                    <input class="input" type="text" name="txt" placeholder="Username" required>
+                    <input class="input" type="email" name="email" placeholder="Email" required>
+                    <input class="input" type="password" name="pswd" placeholder="Password" required>
+                    
+                    <a href="login2.html"><button type="submit">Register</button></a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

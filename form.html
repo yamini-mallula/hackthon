@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2dbf2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #d3caca1a;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color:#6a2c71; ;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 2px solid #6a2c71;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #bf71c8;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #561171;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" required></textarea>
+
+        <label for="foodItems">Food Items Donating:</label>
+        <input type="text" id="foodItems" name="foodItems" required>
+
+        <label for="availableDate">Food Available Date:</label>
+        <input type="date" id="availableDate" name="availableDate" required>
+
+        <label for="expireDate">Food Expire Date:</label>
+        <input type="date" id="expireDate" name="expireDate" required>
+
+        <label for="contactNumber">Contact Number:</label>
+        <input type="tel" id="contactNumber" name="contactNumber" pattern="[0-9]{10}" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

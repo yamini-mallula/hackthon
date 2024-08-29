@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        nav {
+            background-color: #333;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0px;
+            
+        }
+
+        th, td {
+            padding: 20px;
+        
+            text-align: left;
+            border-bottom: 2px solid #e06dcb;
+        }
+
+        th {
+            background-color: #ca6ad6;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #e4afe7;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        .search-container {
+           
+            justify-content: flex-end;
+        }
+
+        .search-container input[type="text"] {
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="list.html">Available Food List</a>
+        <a href="new.html">Share a Meal</a>
+        <a href="fill.html">Fill My Plate</a>
+        <a href="feedback.html">Feedback</a>
+    </nav>
+    <br>
+
+    <div class="search-container">
+        <label for="search">Search:</label>
+        <input type="text" id="searchInput" placeholder="Search..." oninput="searchTable()">
+    </div>
+
+    <table id="donorTable">
+        <thead>
+            <tr>
+                <th>Donor</th>
+                <th>Contact Number</th>
+                <th>Place</th>
+                <th>Food</th>
+                <th>Available Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>957389288</td>
+                <td>Kadapa</td>
+                <td>rice,dal,curd,carrot fry</td>
+                <td>05-3-24 to 06-3-24</td>
+            </tr>
+            
+            <tr>
+                <td>kavya</td>
+                <td>8879708955</td>
+                <td>Tanuku</td>
+                <td>rice,chicken,mutton</td>
+                <td>12-2-24 to 13-2-24</td>
+            </tr>
+            <tr>
+                <td>Sowmya</td>
+                <td>9879708955</td>
+                <td>bengaluru</td>
+                <td>rice,prawn curry,fish fry</td>
+                <td>25-2-24 to 26-2-24</td>
+            </tr>
+            <tr>
+                <td>Raja</td>
+                <td>8979708933</td>
+                <td>Chennai</td>
+                <td>rice,sambar,potato fry</td>
+                <td>29-2-24 to 30-2-24</td>
+            </tr>
+            <tr>
+                <td>Yamini</td>
+                <td>9979708944</td>
+                <td>NGO colleny,Hyderabad</td>
+                <td>rice,brinjal,panneer curry</td>
+                <td>20-2-24 to 21-2-24</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <script>
+        function searchTable() {
+            let input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("donorTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                const columns = tr[i].getElementsByTagName("td");
+                let found = false;
+
+                for (let j = 0; j < columns.length; j++) {
+                    txtValue = columns[j].textContent || columns[j].innerText;
+
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (found) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

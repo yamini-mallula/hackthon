@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2dbf2;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            display: inline-block;
+        }
+        nav a:hover{
+            color:#be73d5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #f6eff6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(200, 102, 4, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #611b72;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #6a2c71;
+            border-radius: 4px;
+        }
+    </style>
+    <title>Donor Page</title>
+</head>
+<body>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="list.html">Available Food List</a>
+        <a href="new.html">Share a Meal</a>
+        <a href="fill.html">Fill My Plate</a>
+        <a href="feedback.html">Feedback</a>
+    </nav>
+
+<div class="container">
+    <h1>Donor Page</h1>
+
+    <label for="foodType">Details :</label>
+    <select id="foodType" name="foodType">
+        <option value="foodDetails">Food Details</option>
+        <option value="foodRequests">Food Requests</option>
+        
+    </select>
+
+    <div id="selectedContent">
+      
+    </div>
+
+    <script>
+        document.getElementById('foodType').addEventListener('change', function() {
+            var selectedValue = this.value;
+            var contentDiv = document.getElementById('selectedContent');
+
+            
+            contentDiv.innerHTML = '';
+
+           
+            if (selectedValue === 'foodDetails') {
+                contentDiv.innerHTML = '<h2>Food Details</h2><p>Add your food details here. <a href="form.html">Click here for more  details.</a></p>';
+            } else if (selectedValue === 'foodRequests') {
+                contentDiv.innerHTML = '<h2>Food Requests</h2><p>View your food requests here.<a href="table.html">Click here for more details.</p>';
+            }
+            
+
+        });
+    </script>
+</div>
+
+</body>
+</html>

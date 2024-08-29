@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Donor Details</h2>
+
+    <div id="donorDetails">
+       
+    </div>
+
+    <button onclick="openRequestPage()">Request</button>
+
+    <script>
+        
+        const donorDetailsData = {
+            'John Doe': {
+                contactNumber: '1234567897',
+                place: 'Cityville',
+                food: 'Non-perishable',
+                availableDate: '03-2-24 to 04-2-24'
+            },
+            'Kavya': {
+                contactNumber: '8879708955',
+                place: 'Tanuku',
+                food: 'Rice, Dal, Curd',
+                availableDate: '12-2-24 to 13-2-24',
+            },
+            'Sowmya':{
+                contactNumber: '9879708955',
+                place: 'bengaluru',
+                food: 'rice,fish fry,prwns curry',
+                availableDate: '25-2-24 to 26-2-24',
+            },
+            'Raja':{
+                contactNumber: '8979708933',
+                place: 'Chennai',
+                food: 'rice,sambar,potato fry',
+                availabeDate: '29-2-24 to 30-2-24',
+            },
+            'Yamini': {
+                contactNumber: '9979708944',
+                place: 'NGO colleny,Hyderabad',
+                food: 'rice,brinjal,panneer curry',
+                availableDate: '20-2-24',
+            }
+            
+        };
+
+        function getDonorDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const donorName = urlParams.get('donor');
+
+           
+            const donorDetailsElement = document.getElementById('donorDetails');
+            const donorDetails = donorDetailsData[donorName];
+
+            if (donorDetails) {
+                donorDetailsElement.innerHTML = `
+                    <p><strong>Name:</strong> ${donorName}</p>
+                    <p><strong>Contact Number:</strong> ${donorDetails.contactNumber}</p>
+                    <p><strong>Place:</strong> ${donorDetails.place}</p>
+                    <p><strong>Food:</strong> ${donorDetails.food}</p>
+                    <p><strong>Available Date:</strong> ${donorDetails.availableDate}</p>
+                `;
+            } else {
+                donorDetailsElement.innerHTML = '<p>Donor details not found.</p>';
+            }
+        }
+
+        function openRequestPage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const donorName = urlParams.get('donor');
+
+            
+            window.open('receiverPage.html?donor=' + encodeURIComponent(donorName), '_blank');
+        }
+
+        getDonorDetails();
+    </script>
+
+</body>
+</html>

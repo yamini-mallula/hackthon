@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receiver Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .form-container {
+            background-color: #d7a2dd; 
+            padding: 20px;
+            border-radius: 15px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 2px solid #db81f7; 
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #d522de; 
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px; 
+        }
+
+        button:hover {
+            background-color: #cd5ed7; 
+        }
+
+        .error-message {
+            color: #ff0000;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Receiver Details</h2>
+
+        <form id="receiverForm">
+            <label for="receiverName">Name:</label>
+            <input type="text" id="receiverName" name="receiverName" required>
+            <div id="nameError" class="error-message"></div>
+
+            <label for="receiverAddress">Address:</label>
+            <input type="text" id="receiverAddress" name="receiverAddress" required>
+            <div id="addressError" class="error-message"></div>
+
+            <label for="receiverContact">Contact Number:</label>
+            <input type="text" id="receiverContact" name="receiverContact" required>
+            <div id="contactError" class="error-message"></div>
+
+            <button type="button" onclick="validateAndSubmit()">Submit Request</button>
+        </form>
+    </div>
+
+    <script>
+        function validateAndSubmit() {
+            
+            document.getElementById('nameError').innerText = "";
+            document.getElementById('addressError').innerText = "";
+            document.getElementById('contactError').innerText = "";
+
+           
+            var name = document.getElementById('receiverName').value.trim();
+            var address = document.getElementById('receiverAddress').value.trim();
+            var contact = document.getElementById('receiverContact').value.trim();
+
+            
+            if (name === "") {
+                document.getElementById('nameError').innerText = "Name is required";
+                return;
+            }
+
+            if (address === "") {
+                document.getElementById('addressError').innerText = "Address is required";
+                return;
+            }
+
+            if (contact === "") {
+                document.getElementById('contactError').innerText = "Contact Number is required";
+                return;
+            }
+
+            
+            alert("Request submitted successfully!");
+            
+        }
+    </script>
+
+</body>
+</html>
